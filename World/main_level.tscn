@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxjm5uixayebg"]
+
+[ext_resource type="PackedScene" uid="uid://ijq0ubdfuhoa" path="res://Player/player_char.tscn" id="1_puxd0"]
+[ext_resource type="PackedScene" uid="uid://w76ebvaw5vfn" path="res://World/diner_grey_box.tscn" id="2_7fawm"]
+[ext_resource type="PackedScene" uid="uid://b0n1ld4se7f88" path="res://Assets/Models/LowPolyPoliceShip.glb" id="3_xb7sw"]
+[ext_resource type="PackedScene" uid="uid://b206bmigvaniy" path="res://Assets/Models/TransportSpaceVehicle.glb" id="4_ygkhx"]
+[ext_resource type="PackedScene" uid="uid://0otr64vkrepr" path="res://Scenes/Items/coffee_cup/coffee_cup.tscn" id="5_vbwyh"]
+[ext_resource type="PackedScene" uid="uid://d3m1f7m7prlul" path="res://Scenes/Items/plate/plate.tscn" id="6_ht1n7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_547yv"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.0106004, 0.0887992, 0.141591, 1)
+ground_bottom_color = Color(0.00988784, 0.074563, 0.129444, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_puxd0"]
+sky_material = SubResource("ProceduralSkyMaterial_547yv")
+
+[sub_resource type="Environment" id="Environment_7fawm"]
+background_mode = 2
+background_energy_multiplier = 2.52
+sky = SubResource("Sky_puxd0")
+
+[node name="MainLevel" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7fawm")
+
+[node name="PlayerChar" parent="." instance=ExtResource("1_puxd0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5858, 0, 3.93766)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.656059, -0.592278, 0.467753, 0, 0.619779, 0.784776, -0.75471, -0.514859, 0.406612, -5.48541, 2.69998, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(80, 0.001, 40)
+
+[node name="DinerGreyBox" parent="." instance=ExtResource("2_7fawm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7845, 0, 4.95)
+
+[node name="LowPolyPoliceShip" parent="." instance=ExtResource("3_xb7sw")]
+transform = Transform3D(0.863765, 0, -0.503895, 0, 1, 0, 0.503895, 0, 0.863765, 29.6604, 0.000499964, -2.4002)
+
+[node name="TransportSpaceVehicle" parent="." instance=ExtResource("4_ygkhx")]
+transform = Transform3D(-3.12536e-08, 0, -0.715, 0, 0.715, 0, 0.715, 0, -3.12536e-08, 19.6438, 2.72586, -22.5042)
+
+[node name="cup" parent="." instance=ExtResource("5_vbwyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.97, 1.10381, 0.315354)
+
+[node name="plate" parent="." instance=ExtResource("6_ht1n7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.864, 1.1, 5.11395)

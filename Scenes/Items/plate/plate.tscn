@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3m1f7m7prlul"]
+
+[ext_resource type="PackedScene" uid="uid://cfr30p0dlxea6" path="res://Assets/Models/Plate.glb" id="1_vny5x"]
+[ext_resource type="ArrayMesh" uid="uid://du85t2rculcbc" path="res://Scenes/Items/plate/plate_mesh.tres" id="2_5t4a5"]
+[ext_resource type="Script" uid="uid://bgb3aim4vrvbb" path="res://Scripts/item_base.gd" id="3_lx3jb"]
+[ext_resource type="Resource" uid="uid://dmvh216a3n780" path="res://Scenes/Items/plate/res_plate.tres" id="4_owxhs"]
+
+[node name="plate" instance=ExtResource("1_vny5x")]
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.715, 0, 0, 0, 0.715, 0, 0, 0, 0.715, 0, 0, 0)
+
+[node name="plate" parent="RootNode" index="0"]
+mesh = ExtResource("2_5t4a5")
+
+[node name="StaticBody3D" parent="RootNode/plate" index="0" groups=["can_interact", "can_pickup"]]
+script = ExtResource("3_lx3jb")
+item_data = ExtResource("4_owxhs")
