@@ -29,6 +29,7 @@ project/assembly_name="The Diner At The Edge Of The Galaxy"
 can_interact=""
 player="cahracter controlled by the player"
 can_pickup=""
+placeable_area=""
 
 [input]
 

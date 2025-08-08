@@ -1,9 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://0otr64vkrepr"]
 
 [ext_resource type="PackedScene" uid="uid://vff7vo6178cg" path="res://Assets/Models/Cup Tea.glb" id="1_fwkbk"]
-[ext_resource type="Script" uid="uid://bgb3aim4vrvbb" path="res://Scripts/item_base.gd" id="2_3qj0s"]
 [ext_resource type="ArrayMesh" uid="uid://dyf73q05ukvfl" path="res://Scenes/Items/coffee_cup/coffee_cup_mesh.tres" id="2_nw8oj"]
 [ext_resource type="Resource" uid="uid://dllwd5t5ho3wv" path="res://Scenes/Items/coffee_cup/res_coffee_cup.tres" id="4_uyd0m"]
+
+[sub_resource type="GDScript" id="GDScript_nw8oj"]
+script/source = "extends StaticBody3D
+
+@export var item_data : item_resource
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func get_item_data():
+	pass
+"
 
 [node name="coffee_cup" groups=["can_pickup"] instance=ExtResource("1_fwkbk")]
 
@@ -11,7 +28,7 @@
 mesh = ExtResource("2_nw8oj")
 
 [node name="StaticBody3D" parent="cupTea" index="0" groups=["can_interact", "can_pickup"]]
-script = ExtResource("2_3qj0s")
+script = SubResource("GDScript_nw8oj")
 item_data = ExtResource("4_uyd0m")
 
 [node name="CollisionShape3D" parent="cupTea/StaticBody3D" index="0" groups=["can_interact"]]
