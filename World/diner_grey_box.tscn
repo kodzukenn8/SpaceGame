@@ -89,6 +89,10 @@ size = Vector3(1.70156, 0.2, 15.8)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 0.5, 2.45)
 size = Vector3(0.7, 1.2, 2.3)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42627, 0.331968, -10.419)
+size = Vector3(0.944336, 1.22992, 5.42731)
+
 [node name="Bathroom walls" type="CSGCombiner3D" parent="."]
 use_collision = true
 

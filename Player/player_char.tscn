@@ -19,7 +19,7 @@ radius = 0.3
 
 [node name="PlayerChar" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_63bys")
-speed = 3
+speed = 4
 default_ch = ExtResource("2_63bys")
 interact_ch = ExtResource("3_qrm3c")
 
@@ -42,10 +42,10 @@ target_position = Vector3(0, -5.935, 0)
 debug_shape_custom_color = Color(0.762404, 0.762404, 0.762404, 1)
 
 [node name="right_hand" type="Node3D" parent="head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58, -0.3, -0.565)
+transform = Transform3D(1, 0, 0, 0, 0.95882, -0.284015, 0, 0.284015, 0.95882, 0.466, -0.431, -0.475)
 
 [node name="left hand" type="Node3D" parent="head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58, -0.3, -0.565)
+transform = Transform3D(1, 0, 0, 0, 0.95882, -0.284015, 0, 0.284015, 0.95882, -0.466215, -0.430631, -0.475)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="head/Camera3D"]
 

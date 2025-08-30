@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dibjxqpkfc3mv"]
+
+[node name="FoodSpawner" type="Node3D"]
+
+[node name="Spawn1" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="Spawn2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="Spawn3" type="RayCast3D" parent="."]
+target_position = Vector3(0, 1, 0)
+
+[node name="Spawn4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="Spawn5" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+target_position = Vector3(0, 1, 0)

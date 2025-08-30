@@ -24,6 +24,10 @@ window/size/viewport_height=1080
 
 project/assembly_name="The Diner At The Edge Of The Galaxy"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 can_interact=""

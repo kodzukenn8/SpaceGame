@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_resource" load_steps=3 format=3 uid="uid://3g2kbibqixp3"]
+
+[ext_resource type="ArrayMesh" uid="uid://bh7fwg2j3a1dt" path="res://Scenes/Items/diner_plate/dinerplate_mesh.tres" id="1_j3mls"]
+[ext_resource type="Script" uid="uid://dm8bwgiytvgpl" path="res://Scripts/item_resource.gd" id="2_q8epu"]
+
+[resource]
+script = ExtResource("2_q8epu")
+mesh = ExtResource("1_j3mls")
+item_scale_mesh = 0.6
+metadata/_custom_type_script = "uid://dm8bwgiytvgpl"

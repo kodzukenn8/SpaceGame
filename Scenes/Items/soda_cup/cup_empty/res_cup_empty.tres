@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_resource" load_steps=3 format=3 uid="uid://cn5okr1lifvv4"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgym4dqotcdlk" path="res://Scenes/Items/soda_cup/cup_empty/cup_empty_mesh.tres" id="1_aafhh"]
+[ext_resource type="Script" uid="uid://dm8bwgiytvgpl" path="res://Scripts/item_resource.gd" id="2_kwypr"]
+
+[resource]
+script = ExtResource("2_kwypr")
+mesh = ExtResource("1_aafhh")
+item_scale_mesh = 0.5
+metadata/_custom_type_script = "uid://dm8bwgiytvgpl"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bas74p2phteoo"]
+
+[ext_resource type="ArrayMesh" uid="uid://p161ejmtm82w" path="res://Scenes/Soda Machine/soda_machine_mesh.tres" id="1_nsdk6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nsdk6"]
+size = Vector3(2.21295, 1, 0.344971)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nsdk6"]
+radius = 0.149694
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00442505, 0.525801, -0.496147)
+shape = SubResource("BoxShape3D_nsdk6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_nsdk6")
+
+[node name="cupSlots" type="Node3D" parent="."]
+
+[node name="Slot 1" type="StaticBody3D" parent="cupSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.824876, 0.13775, -0.0741775)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cupSlots/Slot 1"]
+shape = SubResource("SphereShape3D_nsdk6")

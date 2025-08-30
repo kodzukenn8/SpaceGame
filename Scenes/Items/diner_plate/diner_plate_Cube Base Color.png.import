@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6142ukb6v4ia"
-path.s3tc="res://.godot/imported/Plate_restaurantbits_texture.png-16ea8b49369fcd6c1b5ad20137254078.s3tc.ctex"
+uid="uid://c6h5e8ylgymmi"
+path.s3tc="res://.godot/imported/diner_plate_Cube Base Color.png-af56e79dc718815d747a25c4c4b35333.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "48785c1352dff3429752501e7961f8d9"
+"md5": "536b32baaa29034dfd7ad51b52bb8d38"
 }
 
 [deps]
 
-source_file="res://Scenes/Items/plate/Plate_restaurantbits_texture.png"
-dest_files=["res://.godot/imported/Plate_restaurantbits_texture.png-16ea8b49369fcd6c1b5ad20137254078.s3tc.ctex"]
+source_file="res://Scenes/Items/diner_plate/diner_plate_Cube Base Color.png"
+dest_files=["res://.godot/imported/diner_plate_Cube Base Color.png-af56e79dc718815d747a25c4c4b35333.s3tc.ctex"]
 
 [params]
 

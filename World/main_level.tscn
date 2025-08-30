@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxjm5uixayebg"]
+[gd_scene load_steps=12 format=3 uid="uid://bxjm5uixayebg"]
 
 [ext_resource type="PackedScene" uid="uid://ijq0ubdfuhoa" path="res://Player/player_char.tscn" id="1_puxd0"]
 [ext_resource type="PackedScene" uid="uid://w76ebvaw5vfn" path="res://World/diner_grey_box.tscn" id="2_7fawm"]
 [ext_resource type="PackedScene" uid="uid://b0n1ld4se7f88" path="res://Assets/Models/LowPolyPoliceShip.glb" id="3_xb7sw"]
 [ext_resource type="PackedScene" uid="uid://b206bmigvaniy" path="res://Assets/Models/TransportSpaceVehicle.glb" id="4_ygkhx"]
+[ext_resource type="Resource" uid="uid://c3mf4wr3d02ml" path="res://Scenes/Items/soda_cup/lime_soda/res_lime_soda.tres" id="6_0dj33"]
+[ext_resource type="Resource" uid="uid://3g2kbibqixp3" path="res://Scenes/Items/diner_plate/res_dinerplate.tres" id="6_ht1n7"]
 [ext_resource type="PackedScene" uid="uid://c0wdvvxydxx0b" path="res://Scenes/item_resource_blank.tscn" id="7_3an4m"]
-[ext_resource type="Resource" uid="uid://dmvh216a3n780" path="res://Scenes/Items/plate/res_plate.tres" id="8_3an4m"]
+[ext_resource type="PackedScene" uid="uid://bas74p2phteoo" path="res://Scenes/Soda Machine/soda_machine.tscn" id="8_3an4m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_547yv"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -48,7 +50,11 @@ transform = Transform3D(-3.12536e-08, 0, -0.715, 0, 0.715, 0, 0.715, 0, -3.12536
 
 [node name="cup" parent="." instance=ExtResource("7_3an4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0004, 1.11968, 1.79824)
+item_data = ExtResource("6_0dj33")
 
 [node name="plate" parent="." instance=ExtResource("7_3an4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8769, 1.1, 3.78442)
-item_data = ExtResource("8_3an4m")
+item_data = ExtResource("6_ht1n7")
+
+[node name="Node3D" parent="." instance=ExtResource("8_3an4m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.5613, 0.946928, -5.90871)
