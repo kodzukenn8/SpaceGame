@@ -5,3 +5,4 @@ class_name item_resource
 @export var texture = Texture2D
 @export var material = Material
 @export var item_scale_mesh : float
+@export var item_id : int

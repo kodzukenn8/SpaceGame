@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkchci0ls3ao7"
-path.s3tc="res://.godot/imported/diner_plate_Cube Base Color.png-af56e79dc718815d747a25c4c4b35333.s3tc.ctex"
+uid="uid://c4j8uynujuhx2"
+path.s3tc="res://.godot/imported/grape_soda_cup_Cup Base Color.png-fca2c51fe900d4a02ab3769080459ed1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3ec6ba1b4f4fd305f5acbfa180e7b4aa"
+"md5": "4e5393a5b214fafe74f061ab70f9d25d"
 }
 
 [deps]
 
-source_file="res://Scenes/Items/diner_plate/diner_plate_Cube Base Color.png"
-dest_files=["res://.godot/imported/diner_plate_Cube Base Color.png-af56e79dc718815d747a25c4c4b35333.s3tc.ctex"]
+source_file="res://Scenes/Items/soda_cup/grape_soda/grape_soda_cup_Cup Base Color.png"
+dest_files=["res://.godot/imported/grape_soda_cup_Cup Base Color.png-fca2c51fe900d4a02ab3769080459ed1.s3tc.ctex"]
 
 [params]
 

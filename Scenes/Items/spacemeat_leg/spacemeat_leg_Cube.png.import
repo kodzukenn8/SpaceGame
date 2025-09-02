@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkchci0ls3ao7"
-path.s3tc="res://.godot/imported/diner_plate_Cube Base Color.png-af56e79dc718815d747a25c4c4b35333.s3tc.ctex"
+uid="uid://dlv4jxrm0laj7"
+path.s3tc="res://.godot/imported/spacemeat_leg_Cube.png-bf0b6babf77a3fe846b628034ee85366.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3ec6ba1b4f4fd305f5acbfa180e7b4aa"
+"md5": "f34532f51011b06ca89e60354dc015e3"
 }
 
 [deps]
 
-source_file="res://Scenes/Items/diner_plate/diner_plate_Cube Base Color.png"
-dest_files=["res://.godot/imported/diner_plate_Cube Base Color.png-af56e79dc718815d747a25c4c4b35333.s3tc.ctex"]
+source_file="res://Scenes/Items/spacemeat_leg/spacemeat_leg_Cube.png"
+dest_files=["res://.godot/imported/spacemeat_leg_Cube.png-bf0b6babf77a3fe846b628034ee85366.s3tc.ctex"]
 
 [params]
 

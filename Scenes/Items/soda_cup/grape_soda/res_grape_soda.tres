@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_resource" load_steps=3 format=3 uid="uid://cxeqyrjaeod54"]
+
+[ext_resource type="ArrayMesh" uid="uid://drvsq2gd63nqo" path="res://Scenes/Items/soda_cup/grape_soda/grape_soda_mesh.tres" id="1_uo2pk"]
+[ext_resource type="Script" uid="uid://dm8bwgiytvgpl" path="res://Scripts/item_resource.gd" id="2_p73gu"]
+
+[resource]
+script = ExtResource("2_p73gu")
+mesh = ExtResource("1_uo2pk")
+item_scale_mesh = 0.5
+item_id = 4
+metadata/_custom_type_script = "uid://dm8bwgiytvgpl"

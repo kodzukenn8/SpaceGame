@@ -24,38 +24,21 @@ var left_hand_empty :bool = true
 var lh_item : MeshInstance3D
 
 #UI features
-@onready var crosshair: TextureRect = $head/Camera3D/CanvasLayer/Crosshair
+@onready var crosshair: TextureRect = $head/Camera3D/PlayerUI/Crosshair
 @export var default_ch = Texture2D
 @export var interact_ch = Texture2D
-@onready var leftclick: Label = $head/Camera3D/CanvasLayer/Leftclick
-@onready var rightclick: Label = $head/Camera3D/CanvasLayer/Rightclick
+@onready var leftclick: Label = $head/Camera3D/PlayerUI/Leftclick
+@onready var rightclick: Label = $head/Camera3D/PlayerUI/Rightclick
+@onready var e_label: Label = $head/Camera3D/PlayerUI/E
 
-@onready var ItemResBlank = preload("res://Scenes/item_resource_blank.tscn")
-
+@onready var itemResBlank = preload("res://Scenes/item_resource_blank.tscn")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta: float) -> void:
-	#cross hair logic and playable ui
-	if ray_cast.is_colliding():
-		var collider = ray_cast.get_collider()
-		if collider.is_in_group("can_interact"):
-			crosshair.texture = interact_ch
-		else:
-			crosshair.texture = default_ch
-		if collider.is_in_group("can_pickup") and left_hand_empty == true:
-			leftclick.show()
-		else:
-			leftclick.hide()
-		if collider.is_in_group("can_pickup") and right_hand_empty == true:
-			rightclick.show()
-		else:
-			rightclick.hide()
-	else:
-		crosshair.texture = default_ch
-		rightclick.hide()
-		leftclick.hide()
+	var player_looking_at= ray_cast.get_collider()
+	_player_ui() #line 88
 	
 	# Right hand and left hand item pickup and putdown input logic
 	if Input.is_action_just_pressed("right_click"):
@@ -63,23 +46,29 @@ func _process(delta: float) -> void:
 			rh_item = _pickup_item(right_hand_empty,true)
 		else:
 			_putdown_item(rh_item, true)
+		if right_hand_empty == false and rh_item_data.item_id == 1 and player_looking_at.is_in_group("sodaMachine"):
+			_place_soda(rh_item_data, true)
+			
 	if Input.is_action_just_pressed("left_click"):
 		if left_hand_empty == true:
 			lh_item = _pickup_item(left_hand_empty,false)
 		else:
 			_putdown_item(lh_item, false)
+		
+		if left_hand_empty == false and lh_item_data.item_id == 1 and player_looking_at.is_in_group("sodaMachine"):
+			_place_soda(lh_item_data, false)
+		
+	_select_soda(player_looking_at)
 
-func _unhandled_input(event):
+
+func _unhandled_input(event): #camera movement/mouse control
+	#camera motion
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENS)
 		camera.rotate_x(-event.relative.y * SENS)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-90),deg_to_rad(60))
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().paused = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _physics_process(delta):
+func _physics_process(delta): #movement
 #Player jump mechanic (might delete!) 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -100,7 +89,27 @@ func _physics_process(delta):
 		velocity.x=lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z=lerp(velocity.z, direction.z * speed, delta * 3.0)
 	move_and_slide()
-	
+
+func _player_ui():
+	if ray_cast.is_colliding():
+		var collider = ray_cast.get_collider()
+		if collider.is_in_group("can_pickup") and left_hand_empty == true:
+			leftclick.show()
+		else:
+			leftclick.hide()
+		if collider.is_in_group("can_pickup") and right_hand_empty == true:
+			rightclick.show()
+		else:
+			rightclick.hide()
+		if collider.is_in_group("can_interact"):
+			e_label.show()
+		else:
+			e_label.hide()
+	else:
+		crosshair.texture = default_ch
+		rightclick.hide()
+		leftclick.hide()
+
 func _pickup_item(_is_empty:bool,hand:bool):
 	if _is_empty == false:
 		return
@@ -122,6 +131,7 @@ func _pickup_item(_is_empty:bool,hand:bool):
 #the actual "pick up" of the item
 	if item.is_in_group("can_pickup") and hand == true:
 		right_hand.add_child(mesh_inst)
+		print(current_item_data)
 		root_item.remove_child(item)
 		rh_item_data = current_item_data
 		right_hand_empty = false
@@ -141,7 +151,7 @@ func _putdown_item(item_scene: MeshInstance3D, hand: bool) -> void:
 		return
 	if collider.is_in_group("placeable_area") and ray_cast.get_collision_normal().dot(Vector3.UP)>.95:
 		if hand == true:
-			var new_item = ItemResBlank.instantiate()
+			var new_item = itemResBlank.instantiate()
 			if new_item == null:
 				return
 			var world = player_char.get_parent()
@@ -154,7 +164,7 @@ func _putdown_item(item_scene: MeshInstance3D, hand: bool) -> void:
 			right_hand_empty = true
 			rh_item_data = null
 		else:
-			var new_item = ItemResBlank.instantiate()
+			var new_item = itemResBlank.instantiate()
 			if new_item == null:
 				return
 			var world = player_char.get_parent()
@@ -166,3 +176,33 @@ func _putdown_item(item_scene: MeshInstance3D, hand: bool) -> void:
 			world.add_child(new_item)
 			left_hand_empty = true
 			lh_item_data = null
+
+signal _place_soda_slot
+func _place_soda(item_res: item_resource, hand: bool) -> void:
+	var collider = ray_cast.get_collider()
+	var collider_name = collider.name
+	for c in collider.get_children(): # if the slot is occupied then it will not 
+		if c is MeshInstance3D:
+			print("Slot is full")
+			return
+	var slotnum = collider_name.substr(4,1)
+	emit_signal("_place_soda_slot",item_res,slotnum)
+	if hand == true:
+		for child in right_hand.get_children():
+			right_hand.remove_child(child)
+			child.queue_free()
+		right_hand_empty = true
+	
+	if hand == false:
+		for child in left_hand.get_children():
+			left_hand.remove_child(child)
+			child.queue_free()
+		left_hand_empty = true
+
+signal _open_soda_ui
+func _select_soda(player_looking_at):
+	if player_looking_at == null:
+		return
+	if Input.is_action_just_pressed("interact") and player_looking_at.is_in_group("sodaMachineButton"):
+		emit_signal("_open_soda_ui", player_looking_at)
+	

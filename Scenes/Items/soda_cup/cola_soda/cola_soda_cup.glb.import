@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6btjkl10lf6u"
-path="res://.godot/imported/diner_plate.glb-c269db1f9471c0fd65a3b4e9fc65f4fc.scn"
+uid="uid://bnb3fucw70a4m"
+path="res://.godot/imported/cola_soda_cup.glb-31899dc866a26cb15747dbe4484df851.scn"
 
 [deps]
 
-source_file="res://Scenes/Items/diner_plate/diner_plate.glb"
-dest_files=["res://.godot/imported/diner_plate.glb-c269db1f9471c0fd65a3b4e9fc65f4fc.scn"]
+source_file="res://Scenes/Items/soda_cup/cola_soda/cola_soda_cup.glb"
+dest_files=["res://.godot/imported/cola_soda_cup.glb-31899dc866a26cb15747dbe4484df851.scn"]
 
 [params]
 

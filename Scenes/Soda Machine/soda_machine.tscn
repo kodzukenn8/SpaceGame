@@ -1,14 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bas74p2phteoo"]
+[gd_scene load_steps=7 format=3 uid="uid://bas74p2phteoo"]
 
+[ext_resource type="Script" uid="uid://dau8a7gvsyawg" path="res://Scripts/soda_machine.gd" id="1_2o8ia"]
 [ext_resource type="ArrayMesh" uid="uid://p161ejmtm82w" path="res://Scenes/Soda Machine/soda_machine_mesh.tres" id="1_nsdk6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nsdk6"]
 size = Vector3(2.21295, 1, 0.344971)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nsdk6"]
-radius = 0.149694
+[sub_resource type="BoxShape3D" id="BoxShape3D_j626i"]
+size = Vector3(0.169983, 0.251709, 0.0900879)
 
-[node name="Node3D" type="StaticBody3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_2o8ia"]
+size = Vector3(0.175, 0.25, 0.09)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j626i"]
+radius = 0.18
+
+[node name="SodaMachine" type="StaticBody3D"]
+script = ExtResource("1_2o8ia")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00442505, 0.525801, -0.496147)
@@ -18,10 +26,183 @@ shape = SubResource("BoxShape3D_nsdk6")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_nsdk6")
 
+[node name="interfaces" type="Node3D" parent="."]
+
+[node name="int1" type="StaticBody3D" parent="interfaces" groups=["can_interact", "sodaMachine", "sodaMachineButton"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.812071, 0.99318, 0.168545)
+
+[node name="int1Collision" type="CollisionShape3D" parent="interfaces/int1" groups=["can_interact", "sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, -0.000610411, -0.000366211)
+shape = SubResource("BoxShape3D_j626i")
+
+[node name="int1Mesh" type="MeshInstance3D" parent="interfaces/int1"]
+mesh = SubResource("BoxMesh_2o8ia")
+
+[node name="int2" type="StaticBody3D" parent="interfaces" groups=["can_interact", "sodaMachine", "sodaMachineButton"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270005, 0.99318, 0.168545)
+
+[node name="int2Collision" type="CollisionShape3D" parent="interfaces/int2" groups=["can_interact", "sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, -0.000610411, -0.000366211)
+shape = SubResource("BoxShape3D_j626i")
+
+[node name="int2Mesh" type="MeshInstance3D" parent="interfaces/int2"]
+mesh = SubResource("BoxMesh_2o8ia")
+
+[node name="int3" type="StaticBody3D" parent="interfaces" groups=["can_interact", "sodaMachine", "sodaMachineButton"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284745, 0.99318, 0.168545)
+
+[node name="int3Collision" type="CollisionShape3D" parent="interfaces/int3" groups=["can_interact", "sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, -0.000610411, -0.000366211)
+shape = SubResource("BoxShape3D_j626i")
+
+[node name="int3Mesh" type="MeshInstance3D" parent="interfaces/int3"]
+mesh = SubResource("BoxMesh_2o8ia")
+
+[node name="int4" type="StaticBody3D" parent="interfaces" groups=["can_interact", "sodaMachine", "sodaMachineButton"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.834082, 0.99318, 0.168545)
+
+[node name="int4Collision" type="CollisionShape3D" parent="interfaces/int4" groups=["can_interact", "sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15527e-05, -0.000610411, -0.000366211)
+shape = SubResource("BoxShape3D_j626i")
+
+[node name="int4Mesh" type="MeshInstance3D" parent="interfaces/int4"]
+mesh = SubResource("BoxMesh_2o8ia")
+
 [node name="cupSlots" type="Node3D" parent="."]
 
-[node name="Slot 1" type="StaticBody3D" parent="cupSlots"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.824876, 0.13775, -0.0741775)
+[node name="Slot1" type="StaticBody3D" parent="cupSlots" groups=["sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8041, 0.121618, -0.0731009)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cupSlots/Slot 1"]
-shape = SubResource("SphereShape3D_nsdk6")
+[node name="Slot1Col" type="CollisionShape3D" parent="cupSlots/Slot1"]
+shape = SubResource("SphereShape3D_j626i")
+
+[node name="S1Timer" type="Timer" parent="cupSlots/Slot1"]
+wait_time = 8.0
+one_shot = true
+
+[node name="Slot2" type="StaticBody3D" parent="cupSlots" groups=["sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270999, 0.121618, -0.0731009)
+
+[node name="Slot2Col" type="CollisionShape3D" parent="cupSlots/Slot2"]
+shape = SubResource("SphereShape3D_j626i")
+
+[node name="S2Timer" type="Timer" parent="cupSlots/Slot2"]
+wait_time = 7.0
+one_shot = true
+
+[node name="Slot3" type="StaticBody3D" parent="cupSlots" groups=["sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283751, 0.121618, -0.0731009)
+
+[node name="Slot3Col" type="CollisionShape3D" parent="cupSlots/Slot3"]
+shape = SubResource("SphereShape3D_j626i")
+
+[node name="S3Timer" type="Timer" parent="cupSlots/Slot3"]
+wait_time = 7.0
+one_shot = true
+
+[node name="Slot4" type="StaticBody3D" parent="cupSlots" groups=["sodaMachine"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.835794, 0.121618, -0.0731009)
+
+[node name="Slot4Col" type="CollisionShape3D" parent="cupSlots/Slot4"]
+shape = SubResource("SphereShape3D_j626i")
+
+[node name="S4Timer" type="Timer" parent="cupSlots/Slot4"]
+wait_time = 7.0
+one_shot = true
+
+[node name="SodaUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="SodaUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lime" type="Button" parent="SodaUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -145.0
+offset_right = -75.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lime"
+
+[node name="Cola" type="Button" parent="SodaUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = -145.0
+offset_right = 225.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cola"
+
+[node name="Exit" type="Button" parent="SodaUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 160.0
+offset_right = 40.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
+[node name="Grape" type="Button" parent="SodaUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 15.0
+offset_right = -75.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Grape"
+
+[node name="Orange" type="Button" parent="SodaUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 15.0
+offset_right = 225.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Orange
+"
+
+[connection signal="timeout" from="cupSlots/Slot1/S1Timer" to="." method="_on_s_1_timer_timeout"]
+[connection signal="timeout" from="cupSlots/Slot2/S2Timer" to="." method="_on_s_2_timer_timeout"]
+[connection signal="timeout" from="cupSlots/Slot3/S3Timer" to="." method="_on_s_3_timer_timeout"]
+[connection signal="timeout" from="cupSlots/Slot4/S4Timer" to="." method="_on_s_4_timer_timeout"]
+[connection signal="pressed" from="SodaUI/Lime" to="." method="_on_lime_pressed"]
+[connection signal="pressed" from="SodaUI/Cola" to="." method="_on_cola_pressed"]
+[connection signal="pressed" from="SodaUI/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="SodaUI/Grape" to="." method="_on_grape_pressed"]
+[connection signal="pressed" from="SodaUI/Orange" to="." method="_on_orange_pressed"]

@@ -5,7 +5,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_n8vy6"]
 radius = 0.25
 
-[node name="ItemResourceBlank" type="StaticBody3D" groups=["can_interact", "can_pickup"]]
+[node name="ItemResourceBlank" type="StaticBody3D" groups=["can_pickup"]]
 script = ExtResource("1_1nv8s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["can_interact", "can_pickup"]]

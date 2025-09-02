@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6btjkl10lf6u"
-path="res://.godot/imported/diner_plate.glb-c269db1f9471c0fd65a3b4e9fc65f4fc.scn"
+uid="uid://de2rxqmiibxds"
+path="res://.godot/imported/spacemeat_leg.glb-4425e36482a1edaeadead897dc42b688.scn"
 
 [deps]
 
-source_file="res://Scenes/Items/diner_plate/diner_plate.glb"
-dest_files=["res://.godot/imported/diner_plate.glb-c269db1f9471c0fd65a3b4e9fc65f4fc.scn"]
+source_file="res://Scenes/Items/spacemeat_leg/spacemeat_leg.glb"
+dest_files=["res://.godot/imported/spacemeat_leg.glb-4425e36482a1edaeadead897dc42b688.scn"]
 
 [params]
 

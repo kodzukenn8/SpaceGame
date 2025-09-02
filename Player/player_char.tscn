@@ -47,9 +47,9 @@ transform = Transform3D(1, 0, 0, 0, 0.95882, -0.284015, 0, 0.284015, 0.95882, 0.
 [node name="left hand" type="Node3D" parent="head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.95882, -0.284015, 0, 0.284015, 0.95882, -0.466215, -0.430631, -0.475)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="head/Camera3D"]
+[node name="PlayerUI" type="CanvasLayer" parent="head/Camera3D"]
 
-[node name="Crosshair" type="TextureRect" parent="head/Camera3D/CanvasLayer"]
+[node name="Crosshair" type="TextureRect" parent="head/Camera3D/PlayerUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -63,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_63bys")
 
-[node name="Leftclick" type="Label" parent="head/Camera3D/CanvasLayer"]
+[node name="Leftclick" type="Label" parent="head/Camera3D/PlayerUI"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,7 +81,7 @@ To Pick Up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Rightclick" type="Label" parent="head/Camera3D/CanvasLayer"]
+[node name="Rightclick" type="Label" parent="head/Camera3D/PlayerUI"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,3 +98,18 @@ text = "Right Click
 To Pick Up"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="E" type="Label" parent="head/Camera3D/PlayerUI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = 60.0
+offset_right = 52.5
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[E] to Interact"

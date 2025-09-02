@@ -168,6 +168,12 @@ light_volumetric_fog_energy = 0.7
 omni_range = 9.927
 omni_attenuation = 0.765
 
+[node name="OmniLight3D4" type="OmniLight3D" parent="SpotLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39922, 1.26353, -0.250961)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 21.921
+
 [node name="Appliances" type="CSGCombiner3D" parent="." groups=["placeable_area"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 0.5, 0.9)
 use_collision = true
